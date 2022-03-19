@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Тренажёр устного счёта</title>
+
+	<style>
+	  .center { 
+	  	position: relative;
+		left: 50%;
+		transform: translate(-50%, 0); 
+	  }
+	  table, tr, td {
+  		border: 1px solid;
+	  	font-size: 120%;
+	  	width: 40%;
+	}
+	</style>
+</head>
+<body>
+	
+
+	<button onClick="document.location.href = 'index.html'" class = "button">Назад</button>
+	<hr>
+	<h1 align="center">Тренажёр устного счёта</h1>
+	<h2 align="center">Умножение</h2>
+	<hr>
+  	<form name="search">
+		<h1><div id="example1"></div></h1>
+    	<input type="text" name="response" placeholder="Ответ"></input>
+		<h1><div id="example2"></div></h1>
+    	<input type="text" name="response" placeholder="Ответ"></input>
+		<h1><div id="example3"></div></h1>
+    	<input type="text" name="response" placeholder="Ответ"></input>
+		<h1><div id="example4"></div></h1>
+    	<input type="text" name="response" placeholder="Ответ"></input>
+    	<h1><div id="example5"></div></h1>
+    	<input type="text" name="response" placeholder="Ответ"></input>
+    	<br>
+		<button class = "button" name= "complete">Завершить</button>
+	</form>
+	<br>
+	<h1 align="center"><div id = "analytics1" style = "visibility: hidden;">Верно | Всего</div></h1>
+	<h1 align="center"><div id = "analytics2"></div></h1>
+
+	<table id="table" class = "center" style = "visibility: hidden;">
+		<tr>	
+			<td>Пример</td>
+			<td>Ваш ответ</td>
+			<td>Верный ответ</td>
+		</tr>
+	</table>
+	<button onClick="location.reload()" id = "reload" class = "button" style = "visibility: hidden;">Пройти ещё раз</button>
+
+	<script>
+		"use strict"
+		function getRandomInt(min, max) {
+			return Math.floor(Math.random() * (max - min)*10)/10 + min;
+		}
+		let i = 1;
+		let responses = [];
+		let examples = []
+		while (document.getElementById("example" + i) != null){
+			let d1 = getRandomInt(1, 5);
+			let d2 = Math.floor(getRandomInt(1, 10));
+			let d3 = d1 * d2;
+			responses.push(d3);
+			examples.push(`${d1.toFixed(1)} * ${d2} = `);
+			var example = document.getElementById("example" + i);
+			example.textContent = `${d1} * ${d2} = `;
+			i++;
+		}
+		function sendForm(e){
+			let i = 1;
+			let correct = 0;
+			document.search.complete.remove();
+			var resp = document.getElementsByName("response");
+			var analytics = document.getElementById("analytics2");
+			var ana = document.getElementById("analytics1");
+			
+			ana.style.visibility = "visible";
+			table.style.visibility = "visible";
+			document.getElementById("reload").style.visibility = "visible";
+
+			while (document.getElementById("example" + i) != null){
+				let val = resp.item(0).value.trim();
+			    if (val == responses[i-1].toFixed(1)){
+			    	correct++;
+			    }
+
+				let tr = document.createElement('tr');
+				let td1 = document.createElement('td');
+				let td2 = document.createElement('td');
+				let td3 = document.createElement('td');
+				td3.innerHTML = examples[i-1];
+				tr.append(td3);
+				td1.innerHTML = val;
+				tr.append(td1);
+				td2.innerHTML = responses[i-1].toFixed(1);
+				tr.append(td2);
+				table.append(tr);
+
+			    	resp.item(0).remove();
+				document.getElementById("example" + i).remove();
+
+				i++;
+			}
+			analytics.textContent = `${correct} | ${i-1}`;
+
+			e.preventDefault();
+		}
+ 
+		var completeButton = document.search.complete;
+		completeButton.addEventListener("click", sendForm);
+    </script>
+</body>
+
+</html>
