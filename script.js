@@ -53,7 +53,7 @@ function sendForm(e){
 	while (document.getElementById("example" + i) != null){
 		let val = user_responses.item(0).value.trim().replace(',','.');
 		if (val !== ""){
-			val = Number(val);
+			val = Number(val).toFixed(1);
 		}
 		if (val == Number(responses[i-1])){
 	    		correct++;
