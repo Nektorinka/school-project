@@ -6,12 +6,12 @@ function getRandom(min, max, d = 10) {
 
 var responses = [];
 var examples = []; 
-var q_examples;
+var q_examples = 0;
+var i_examples = 0;
 
 function generateExamples(operator, q = 5, dig1 = 20, dig2 = 20){
-	q_examples = q;
-	console.log(q_examples);
-	for (let i = 1; i <= q_examples; ++i){
+	for (var i = 1; i <= q; ++i){
+		console.log(i_examples, q);
 		var d1 = getRandom(1, dig1);
 		var d2 = getRandom(1, dig2);
 		if (operator == '+'){
@@ -32,20 +32,20 @@ function generateExamples(operator, q = 5, dig1 = 20, dig2 = 20){
 		}
 		responses.push(d3);
 		examples.push(`${d1} ${operator} ${d2} = `);
-		let example = document.getElementById("example" + i);
+		let example = document.getElementById("example" + String(i_examples + i));
 		example.textContent = `${d1} ${operator} ${d2} = `;
 	}
+	i_examples += (--i);
+	q_examples += q;
 }
 
 function sendForm(e){
-	console.log(responses);
 	let i = 1;
 	let correct = 0;
 	document.examples.complete.remove();
 	var user_responses = document.getElementsByName("response");
 	var right = document.getElementById("right");
 	var all = document.getElementById("all");
-	console.log(user_responses);
 
 	table.style.visibility = "visible";
 	document.getElementById("reload").style.visibility = "visible";
@@ -71,7 +71,7 @@ function sendForm(e){
 		table.append(tr);
 
 		user_responses.item(0).remove();
-		document.getElementById("example" + i).remove();
+		document.getElementById("example" + String(i)).remove();
 
 		i++;
 	}

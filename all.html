@@ -2,90 +2,79 @@
 <!DOCTYPE html>
 <html lang="ru">
 
-<head>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Тренажёр устного счёта</title>
-
-	<style>
-	  .center { 
-	  	position: relative;
-		left: 50%;
-		transform: translate(-50%, 0); 
-	  }
-	  table, tr, td {
-  		border: 1px solid;
-	  	font-size: 120%;
-	  	width: 20%;
-	}
-	</style>
-</head>
-<body>
-	
-
-	<button onClick="document.location.href = 'index.html'" class = "button">Назад</button>
-	<hr>
-	<h1 align="center">Тренажёр устного счёта</h1>
-	<h2 align="center">Все операции</h2>
-	<hr>
-  	<h1>В разработке</h1>
-
-	<script>
-		"use strict"
-		function getRandomInt(min, max) {
-			return Math.floor(Math.random() * (max - min)*10)/10 + min;
-		}
-		let i = 1;
-		let responses = [];
-		while (document.getElementById("example" + i) != null){
-			let d1 = getRandomInt(1, 5);
-			let d2 = Math.floor(getRandomInt(1, 10));
-			let d3 = d1 * d2;
-			responses.push(d3);
-			var example = document.getElementById("example" + i);
-			example.textContent = `${d1} * ${d2} = `;
-			i++;
-		}
-		function sendForm(e){
-			let i = 1;
-			let correct = 0;
-			document.search.complete.remove();
-			var resp = document.getElementsByName("response");
-			var analytics = document.getElementById("analytics2");
-			var ana = document.getElementById("analytics1");
-			
-			ana.style.visibility = "visible";
-			table.style.visibility = "visible";
-			document.getElementById("reload").style.visibility = "visible";
-
-			while (document.getElementById("example" + i) != null){
-				let val = resp.item(0).value.trim();
-			    if (val == responses[i-1].toFixed(1)){
-			    	correct++;
-			    }
-
-				let tr = document.createElement('tr');
-				let td1 = document.createElement('td');
-				let td2 = document.createElement('td');
-				td1.innerHTML = val;
-				tr.append(td1);
-				td2.innerHTML = responses[i-1].toFixed(1);
-				tr.append(td2);
-				table.append(tr);
-
-			    resp.item(0).remove();
-				document.getElementById("example" + i).remove();
-
-				i++;
+	<head>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Тренажёр устного счёта</title>
+		<style>
+		  	.center { 
+		  		position: relative;
+				left: 50%;
+				transform: translate(-50%, 0); 
+		  	}
+		  
+		  	table, tr, td {
+	  			border: 1px solid;
+		  		font-size: 120%;
+		  		width: 40%;
 			}
-			analytics.textContent = `${correct} | ${i-1}`;
+			td.nobord { 
+				border: 0px solid; 
+		  	}
+			td.right { 
+				background: green;
+		  	}
+		</style>
+	</head>
+	<body>
+		<button onClick="document.location.href = 'index.html'" class = "button">Назад</button>
+		<hr>
+		<h1 align="center">Тренажёр устного счёта</h1>
+		<h2 align="center">Сложение</h2>
+		<hr>
+	  	<form name="examples">
+			<h1><div id="example1"></div></h1>
+	    	<input type="text" name="response" placeholder="Ответ"></input>
+			<h1><div id="example2"></div></h1>
+	    	<input type="text" name="response" placeholder="Ответ"></input>
+			<h1><div id="example3"></div></h1>
+	    	<input type="text" name="response" placeholder="Ответ"></input>
+			<h1><div id="example4"></div></h1>
+	    	<input type="text" name="response" placeholder="Ответ"></input>
+	    	<h1><div id="example5"></div></h1>
+	    	<input type="text" name="response" placeholder="Ответ"></input>
+	    	<br>
+			<button class = "button" name= "complete">Завершить</button>
+		</form>
+		<br>
+		<h1 align="center"><div id = "analytics2"></div></h1>
 
-			e.preventDefault();
-		}
- 
-		var completeButton = document.search.complete;
-		completeButton.addEventListener("click", sendForm);
-    </script>
-</body>
+		<table id="table" class = "center" style = "visibility: hidden;">
+			<tr>
+				<td class = "nobord" ></td>
+				<td>Верно</td>
+				<td>Всего</td>
+			</tr>
+			<tr>
+				<td class = "nobord" ></td>
+				<td id = "right"></td>
+				<td id = "all"></td>
+			</tr>
 
+			<tr>
+				<td>Пример</td>
+				<td>Ваш ответ</td>
+				<td>Верный ответ</td>
+			</tr>
+		</table>
+		<button onClick="location.reload()" id = "reload" class = "button" style = "visibility: hidden;">Пройти ещё раз</button>
+
+		<script src = "script.js"></script>
+		<script> 
+			generateExamples('+', 2);
+			generateExamples('-', 1);
+			generateExamples('*', 1);
+			generateExamples('/', 1); 
+		</script>
+	</body>
 </html>
