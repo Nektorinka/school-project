@@ -1,0 +1,62 @@
+h1 {
+	font-family: Garamond, serif;
+	font-size: 300%;
+}
+h3 {
+	font-family: Garamond, serif;
+	font-size: 150%;
+}
+h2 {
+	font-family: Garamond, serif;
+	font-size: 200%;
+}
+
+input[type=text] {
+  border: 1px solid gray;
+  border-radius: 4px;
+  width: 20%;
+  height: calc(2.25rem + 2px);
+}
+input:focus {
+  border-color: #bdbdbd;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
+}
+
+.button {
+	font-weight: 700;
+	color: black;
+	text-decoration: none;
+	padding: .8em 1em ;
+	border-radius: 12px;
+	background-color: #e7e7e7;
+	transition: 0.2s;
+	border:  0px;
+} 
+.button:hover { 
+	background-color: #66CDAA;
+	color: white; 
+}
+.button:active { 
+	background-color: #66CDAA;
+	color: white; 
+}
+.center { 
+	position: relative;
+	left: 50%;
+	transform: translate(-50%, 0); 
+}
+table, tr, td {
+	border: 1px solid;
+	font-size: 120%;
+	width: 40%;
+}
+td.nobord { 
+	border: 0px solid; 
+}
+td.right { 
+	background: green;
+}
+td.wrong { 
+	background: red;
+}
