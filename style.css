@@ -1,13 +1,13 @@
 h1 {
-	font-family: Bookman Old Style;
+	font-family: Palatino Linotype;
 	font-size: 300%;
 }
 h3 {
-	font-family: Bookman Old Style;
+	font-family: Palatino Linotype;
 	font-size: 150%;
 }
 h2 {
-	font-family: Bookman Old Style;
+	font-family: Palatino Linotype;
 	font-size: 200%;
 }
 
@@ -15,7 +15,7 @@ input[type=text] {
   border: 1px solid gray;
   border-radius: 15px;
   font-size: 150%;
-  font-family: Bookman Old Style;
+  font-family: Palatino Linotype;
   width: 20%;
   height: calc(2.25rem + 2px);
 }
@@ -26,7 +26,7 @@ input:focus {
 }
 
 .button {
-	font-family: Bookman Old Style;
+	font-family: Palatino Linotype;
 	font-size: 150%;
 	font-weight: 500;
 	color: black;
