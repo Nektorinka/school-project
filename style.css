@@ -1,21 +1,56 @@
 h1 {
-	font-family: Palatino Linotype;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 300%;
+	font-weight: 900;
+}
+.example {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 250%;
+	font-weight: 900;
+	display: inline-block;
 }
 h3 {
-	font-family: Palatino Linotype;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 150%;
+	font-style:italic;
+}
+hr {
+	margin: 20px 0;
+	padding: 0;
+	height: 0;
+	border: none;
+	border-top: 2px dotted #ddd;
 }
 h2 {
-	font-family: Palatino Linotype;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 200%;
 }
-
+.buttons{
+	display:  flex;
+	margin: 0 auto;
+	flex-direction: column;
+	padding: 10px;
+	flex-grow: 1;
+}
+.button{
+	display: flex; 
+	width: 30%;
+	margin: 0 auto;
+	justify-content: center;
+}
+.eche{
+	display: flex; 
+	width: 30%;
+	justify-content: center;
+	margin: 0 auto;
+	position: relative;
+	top: 10px;
+}
 input[type=text] {
   border: 1px solid gray;
   border-radius: 15px;
   font-size: 150%;
-  font-family: Palatino Linotype;
+  font-family: 'Open Sans', sans-serif;
   width: 20%;
   height: calc(2.25rem + 2px);
 }
@@ -24,26 +59,43 @@ input:focus {
   outline: 0;
   box-shadow: 0 0 0 0.4rem #66CDAA;
 }
-
-.button {
-	font-family: Palatino Linotype;
+.input {
+	position: relative;
+	left: 10px;
+	top:  10px;
+}
+.examples{
+	display:  flex;
+	flex-direction: column;
+}
+.example0 {
+	display: flex;
+}
+button {
+	font-family: 'Open Sans', sans-serif;
 	font-size: 150%;
-	font-weight: 500;
+	font-weight: 900;
 	color: black;
-	text-decoration: none;
-	padding: .8em 1em ;
-	border-radius: 12px;
+	text-decoration: none;	
+	padding: 10px;
+	border-radius: 14px;
 	background-color: #e7e7e7;
 	transition: 0.2s;
 	border:  0px;
 } 
-.button:hover { 
+button:hover { 
 	background-color: #66CDAA;
 	color: white; 
 }
-.button:active { 
+button:active { 
 	background-color: #66CDAA;
 	color: white; 
+}
+button.back { 
+	font-size: 150%;
+
+	padding: 10px;
+
 }
 .center { 
 	position: relative;

@@ -4,28 +4,37 @@
 
 	<head>
 		<meta charset="UTF-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Тренажёр устного счёта</title>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-		<button onClick="document.location.href = 'index.html'" class = "button">Назад</button>
-		<h1 align="center">Тренажёр устного счёта</h1>
+		<button onClick="document.location.href = 'index.html'" class = "back">Назад</button>
 		<h2 align="center">Сложение</h2>
 		<hr>
-	  	<form name="examples">
-			<h1><div id="example1"></div></h1>
-	    	<input type="text" name="response" placeholder="Ответ" autocomplete="off"></input>
-			<h1><div id="example2"></div></h1>
-	    	<input type="text" name="response" placeholder="Ответ" autocomplete="off"></input>
-			<h1><div id="example3"></div></h1>
-	    	<input type="text" name="response" placeholder="Ответ" autocomplete="off"></input>
-			<h1><div id="example4"></div></h1>
-	    	<input type="text" name="response" placeholder="Ответ" autocomplete="off"></input>
-	    	<h1><div id="example5"></div></h1>
-	    	<input type="text" name="response" placeholder="Ответ" autocomplete="off"></input>
+	  	<form name="examples" classc = "examples">
+	  		<div class = "example0">
+	  			<div id="example1" class = "example"></div>
+	    		<input type="text" name="response" placeholder="Ответ" autocomplete="off" class = "input"></input>
+	  		</div>
+	  		<div class = "example0">
+	  			<div id="example2" class = "example"></div>
+	    		<input type="text" name="response" placeholder="Ответ" autocomplete="off" class = "input"></input>
+	  		</div>
+	  		<div class = "example0">
+	  			<div id="example3" class = "example"></div>
+	    		<input type="text" name="response" placeholder="Ответ" autocomplete="off" class = "input"></input>
+	  		</div>
+	  		<div class = "example0">
+	  			<div id="example4" class = "example"></div>
+	    		<input type="text" name="response" placeholder="Ответ" autocomplete="off" class = "input"></input>
+	  		</div>
+	  		<div class = "example0">
+	  			<div id="example5" class = "example"></div>
+	    		<input type="text" name="response" placeholder="Ответ" autocomplete="off" class = "input"></input>
+	  		</div>
 	    	<br>
-			<button class = "button" name= "complete">Завершить</button>
+			<button class = "back" name= "complete">Завершить</button>
 		</form>
 		<br>
 		<h1 align="center"><div id = "analytics2"></div></h1>
@@ -48,7 +57,10 @@
 				<td>Верный ответ</td>
 			</tr>
 		</table>
-		<button onClick="location.reload()" id = "reload" class = "button" style = "visibility: hidden;">Пройти ещё раз</button>
+		<button onClick="location.reload()" id = "reload" class = "eche" style = "visibility: hidden;">Пройти ещё раз</button>
+
+		<hr>
+		<p align = "center">Связь с автором: <a href="mailto:evgeniyknayz435@gmai.com">evgeniyknayz435@gmai.com</a></p>
 
 		<script src = "script.js"></script>
 		<script> 
