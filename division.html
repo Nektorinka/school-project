@@ -12,7 +12,7 @@
 		<button onClick="document.location.href = 'index.html'" class = "back">Назад</button>
 		<h2 align="center">Деление</h2>
 		<hr>
-	  	<form name="examples" classc = "examples">
+  	<form name="examples" classc = "examples"> <!--	опечаточка в classc, видимо и сам класс лишний :)-->
 	  		<div class = "example0">
 	  			<div id="example1" class = "example"></div>
 	    		<input type="text" name="response" placeholder="Ответ" autocomplete="off" class = "input"></input>
@@ -63,8 +63,8 @@
 		<p align = "center">Связь с автором: <a href="mailto:olegkzn0@gmail.com">olegkzn0@gmail.com</a></p>
 
 		<script src = "script.js"></script>
-		<script> 
-			generateExamples('/', 5, 5, 5); 
+		<script>
+			generateExamples('/', 5, 5, 5); // вот тут если бы ты в generateExamples принимал 1 объект в качестве параметров, то читалось бы на много лучше, например generateExamples({operator: '/', param1: 5, param2: 5, param3: 5})
 			const responses = glob();
 		</script>
 	</body>

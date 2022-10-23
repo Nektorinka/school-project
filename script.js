@@ -4,16 +4,16 @@ function getRandom(min, max, d = 10) {
 	return Math.floor(Math.random() * (max - min)*d)/d + min;
 }
 
-var tempResponses = [];
-var examples = []; 
-var q_examples = 0;
+var tempResponses = []; // нет нужды в var, лучше использовать const, когда нам не нужно переопределять переменную
+var examples = [];
+var q_examples = 0; // непонятная переменная. Лучше избегать сокращений в переменных, чтобы повысить читаемость кода.
 var i_examples = 0;
 
-function generateExamples(operator, q = 5, dig1 = 20, dig2 = 20){
-	for (var i = 1; i <= q; ++i){
+function generateExamples(operator, q = 5, dig1 = 20, dig2 = 20){ // в ванильном js я бы лучше передавал аргументы функции в объекте, так на много легче читать код и поможет избежать лишних ошибок в будущем. Например тут можно было бы сделать так generateExamples({operator, q = 5, dig1 = 20, dig2 = 20}) и дать более внятные имена переменным q, dig1 и dig2
+	for (var i = 1; i <= q; ++i){ // тут лучше использовать let вместо var. var видна вне блока for и поэтому в будущем возможны баги, если захочешь расширить функционал
 		var d1 = getRandom(1, dig1);
 		var d2 = getRandom(1, dig2);
-		if (operator == '+'){
+		if (operator == '+'){ // лучше использовать строгое сравнение ===. При строгом сравнении меньше вероятность получения бага
 			var d3 = d1 + d2;
 		} else if(operator == "-"){
 			d3 = Math.min(d1, d2);
@@ -37,7 +37,7 @@ function generateExamples(operator, q = 5, dig1 = 20, dig2 = 20){
 	q_examples += q;
 }
 
-function glob(){
+function glob(){ // функции лучше всего называть с глагола, например getSomething(), чтобы было понятно что она делает сразу из ее названия
 	return tempResponses;
 }
 
@@ -52,7 +52,7 @@ function sendForm(e){
 	table.style.visibility = "visible";
 	document.getElementById("reload").style.visibility = "visible";
 
-	while (document.getElementById("example" + i) != null){
+	while (document.getElementById("example" + i) != null){ // тут лучше строгое сравнение использовать
 		let val = user_responses.item(0).value.trim().replace(',','.');
 		if (val !== ""){
 			val = Number(val).toFixed(1);
